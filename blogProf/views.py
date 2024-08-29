@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from .models import Eu
+from .models import Guilherme
 
 # Create your views here.
 def home(request):
-    eu = Eu.objects.all()
-    return render(request, 'blogProf/home.html', {'eu': eu})
+    guilherme = Guilherme.objects.all()
+    context = {
+        'guilhermes': guilherme
+    }
+    print(guilherme)
+    return render(request, 'blogProf/home.html', context)
 
 def detalhe(request):
-    eu = Eu.objects.all()
+    eu = Guilherme.objects.all()
     return render(request, 'detalhe.html')
