@@ -1,36 +1,31 @@
 {% extends 'base.html' %}
-{% block content %}
 {% load static %}
-{% for post in posts %}
-<section class="page-section">
-    <div class="container">
-        <div class="product-item">
-            <div class="product-item-title d-flex">
-                <div class="bg-faded p-5 d-flex ms-auto rounded">
-                    <h2 class="section-heading mb-0">
-                        <span class="section-heading-upper">{{ post.titulo }}</span>
-                        <span class="section-heading-lower">{{ post.subtitulo }}</span>
-                    </h2>
+{% block content %}
+    {% for post in posts %}
+    <section class="page-section">
+        <div class="container">
+            <div class="product-item">
+                <div class="product-item-title d-flex">
+                    <div class="bg-faded p-5 d-flex ms-auto rounded">
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">{{ post.titulo }}</span>
+                            <span class="section-heading-lower">{{ post.subtitulo }}</span>
+                        </h2>
+                    </div>
                 </div>
-            </div>
-            <div style="text-align: center;" class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0">
-                {% if post.video %}
-                <video width="450"; height="800" controls style="display: block; margin: 0 auto;" class="img-fluid rounded">
-                    <source src="{{ post.video.url }}" type="video/mp4" >
-                </video>
-                {% endif %}
-                
-                {% if post.imagem %}
-                <img src="{{ post.imagem.url }}" alt="{{ post.titulo }}" class="img-fluid rounded" style="display: block; margin: 0 auto;">
-                {% endif %}
-            </div>            
-            <div class="product-item-description d-flex me-auto">
-                <div class="bg-faded p-5 rounded">
-                    <p class="mb-0">{{ post.descricao }}</p>
+                <div style="text-align: center;" class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0">
+                    
+                    {% if post.imagem %}
+                    <img src="{{ post.imagem.url }}" alt="{{ post.titulo }}" class="img-fluid rounded" style="display: block; margin: 0 auto;">
+                    {% endif %}
+                </div>            
+                <div class="product-item-description d-flex me-auto">
+                    <div class="bg-faded p-5 rounded">
+                        <p class="mb-0">{{ post.descricao }}</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-{% endfor %}
+    </section>
+    {% endfor %}
 {% endblock %}
