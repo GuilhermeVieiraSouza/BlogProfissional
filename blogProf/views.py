@@ -1,15 +1,36 @@
 from django.shortcuts import render
-from .models import Guilherme
+from .models import *
 
 # Create your views here.
-def home(request):
-    guilherme = Guilherme.objects.all()
-    context = {
-        'guilhermes': guilherme
+def index(request):
+    pessoal = Pessoal.objects.all().first()
+    contexto = {
+        'pessoal': pessoal,
     }
-    print(guilherme)
-    return render(request, 'blogProf/home.html', context)
+    return render(request, 'blogProf/home.html', contexto)
 
-def detalhe(request):
-    eu = Guilherme.objects.all()
-    return render(request, 'detalhe.html')
+def sobre(request):
+    pessoal = Pessoal.objects.all().first()
+    contexto = {
+        'pessoal': pessoal,
+    }
+    return render(request, 'blogProf/sobre.html', contexto)
+
+def academico(request):
+    habilidades = Habilidades.objects.all()
+    atividades = Atividades.objects.all()
+    pessoal = Pessoal.objects.all().first()
+    contexto = {
+        'lista': habilidades,
+        'cursos': atividades,
+        'pessoal': pessoal,
+    }
+    return render(request, 'blogProf/academico.html', contexto)
+
+def pessoal(request):
+    publicacao = Pessoal.objects.all()
+    contexto = {
+        'posts': publicacao,
+    }
+
+    return render(request, 'blogProf/pessoal.html', contexto)

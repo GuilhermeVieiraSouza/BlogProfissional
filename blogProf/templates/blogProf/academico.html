@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner bg-faded text-center rounded">
+                    <h2 class="section-heading mb-5">
+                        <span class="section-heading-upper">Algumas das minhas</span>
+                        <span class="section-heading-lower">habilidades técnicas</span>
+                    </h2>
+                    {%for habilidades in lista%}
+                    <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                        <li class="list-unstyled-item list-hours-item d-flex">
+                            {{habilidades.nome}}
+                        </li>
+                    </ul>
+                    {%endfor%}
+                    <h2 class="section-heading mb-5">
+                        <span class="section-heading-upper">Alguns cursos, projetos e atividades</span>
+                        <span class="section-heading-lower">extra-curriculares</span>
+                    </h2>
+                    {%for atividades in cursos%}
+                    <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                        <li class="list-unstyled-item list-hours-item d-flex">
+                            {{atividades.nome}}
+                        </li>
+                    </ul>
+                    {%endfor%}
+                    <p class="address mb-5">
+                        <em>
+                            <strong>Meu GitHub</strong>
+                            <br />
+                            <a href="{{pessoal.portfolio}}">Clique aqui</a>
+                        </em>
+                    </p>
+                    <p class="mb-0">
+                        <small><em>Email para contato</em></small>
+                        <br />
+                        <a href="mailto:{{pessoal.email}}">{{pessoal.email}}</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,22 +1,17 @@
 from django.contrib import admin
-from .models import Guilherme, Curso
-
+from .models import *
 # Register your models here.
+@admin.register(Habilidades)
+class HabilidadesAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'descricao')
+    search_fields = ('nome', 'descricao')
 
-@admin.register(Guilherme)
-class GuilhermeAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'idade', 'email', 'senha', 'descricao')
-    search_fields = ('nome', 'email')
-    list_filter = ('idade', 'email')
-    list_editable = ('email', 'senha')
-    list_display_links = ('nome', 'descricao')
-    list_max_show_all = 10
+@admin.register(Atividades)
+class AtividadesAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'descricao')
+    search_fields = ('nome', 'descricao')
 
-@admin.register(Curso)
-class CursoAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'imagem')
-    search_fields = ('nome',)
-    list_filter = ('nome',)
-    list_editable = ('imagem',)
-    list_display_links = ('nome',)
-    list_max_show_all = 10
+@admin.register(Pessoal)
+class PessoalAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'subtitulo', 'descricao')
+    search_fields = ('titulo', 'subtitulo', 'descricao')
